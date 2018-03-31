@@ -13,7 +13,7 @@ class PlotAlpha:
         self.img = img
         self.width = 0
         self.height = 0
-        #self.channels = 0
+        self.channels = 0
         self.alpha_max = 0.
         self.gamma = 2.
 
@@ -35,15 +35,18 @@ class PlotAlpha:
         
         for i in range(0, self.height):
             for j in range(0, self.width):
-                self.alpha_array[i][j] = (float(img[i][j][3]))/max_org
+                self.alpha_array[i][j] = ((float(img[i][j][3]))/max_org)**0.3
                 img[i][j][3] = float(self.alpha_array[i][j])*255
                 
         
-        self.alpha_max = np.max(self.alpha_array)     
+        self.alpha_max = np.max(self.alpha_array)
         print img[0]
-        cv2.imwrite('alpha_test_img.png', img)
-        
+        #cv2.imwrite('alpha_test_img.png', img)
         #-------------------------------------------------------------------#
+        cv2.imwrite('alpha**0.3_test_img.png', img)
+        
+        
+        '''#-------------------------------------------------------------------#
         
         for k in range(256):
             self.LookUpTable[k][0] = 255*pow(float(i) / 255, 1.0 / self.gamma)
@@ -51,7 +54,7 @@ class PlotAlpha:
         
         cv2.imwrite('gamma_test_img.png', img_gamma)
         
-        #-------------------------------------------------------------------#
+        '''#-------------------------------------------------------------------#
         
 def main():
     PA = PlotAlpha(image)
