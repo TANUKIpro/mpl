@@ -40,7 +40,6 @@ class PlotAlpha:
                 
         
         self.alpha_max = np.max(self.alpha_array)
-        print img[0]
         #cv2.imwrite('alpha_test_img.png', img)
         #-------------------------------------------------------------------#
         cv2.imwrite('alpha**0.3_test_img.png', img)
@@ -66,5 +65,4 @@ if __name__ == '__main__':
     #img = cv2.imread(image, -1)
     img = cv2.imread(image, cv2.IMREAD_UNCHANGED)
     blue_c, green_c, red_c, alpha_c = cv2.split(img)
-
     main()
