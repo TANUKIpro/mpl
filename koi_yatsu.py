@@ -48,7 +48,7 @@ class PlotAlpha:
         '''#-------------------------------------------------------------------#
         
         for k in range(256):
-            self.LookUpTable[k][0] = 255*pow(float(i) / 255, 1.0 / self.gamma)
+            self.LookUpTable[k][0] = 255*pow(float(i)/255, 1.0/self.gamma)
         img_gamma = cv2.LUT(img, self.LookUpTable)
         
         cv2.imwrite('gamma_test_img.png', img_gamma)
