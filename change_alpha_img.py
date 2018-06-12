@@ -32,7 +32,8 @@ def change_img(image, count):
     cv2.imwrite(save_name, img_gamma)
 
 image_path = sys.argv[1]
-save_path = sys.argv[2]
+#save_path = sys.argv[2]
+
 
 lng = len(os.listdir(image_path))
 for i in tqdm(os.listdir(image_path)):
